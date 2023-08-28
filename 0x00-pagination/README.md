@@ -1,6 +1,9 @@
 0x00. Pagination
 ================
 
+## AUTHOR
+-   Engr. A I
+
 Back-end
 
 -   By Emmanuel Turlay, Staff Software Engineer at Cruise
