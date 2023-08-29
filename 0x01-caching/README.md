@@ -1,29 +1,6 @@
 0x01. Caching
 =============
 
-Back-end
-
--   By Guillaume, CTO at Holberton School
--   Weight: 1
--   Ongoing second chance project - started
-
-    Jul 12, 2022
-
-    , must end by
-
-    Jul 16, 2022
-
-    - you're done with 0% of tasks.
--   An auto review will be launched at the deadline
-
-#### In a nutshell...
-
--   **Auto QA review:** 0.0/89 mandatory & 0.0/18 optional
--   **Altogether:**  **0.0%**
-    -   Mandatory: 0.0%
-    -   Optional: 0.0%
-    -   Calculation:  0.0% + (0.0% * 0.0%)  == **0.0%**
-
 Background Context
 ------------------
 
@@ -719,9 +696,3 @@ M: M
 guillaume@ubuntu:~/0x01$
 
 ```
-
-**Repo:**
-
--   GitHub repository: `alx-backend`
--   Directory: `0x01-caching`
--   File: `100-lfu_cache.py`
