@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-""" 
-    BaseCaching module
+"""BaseCaching module
 """
 from base_caching import BaseCaching
 
@@ -55,8 +54,7 @@ class LFUCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """ 
-            returns the value in self.cache_data linked to key
+        """returns the value in self.cache_data linked to key
         """
         if key is not None and key in self.cache_data.keys():
             del self.history[self.history.index(key)]
@@ -64,4 +62,3 @@ class LFUCache(BaseCaching):
             self.frequency[key] += 1
             return self.cache_data[key]
         return None
-
