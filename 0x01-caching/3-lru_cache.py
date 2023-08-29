@@ -40,3 +40,4 @@ class LRUCache(BaseCaching):
             del self.history[self.history.index(key)]
             self.history.append(key)
             return self.cache_data[key]
+
