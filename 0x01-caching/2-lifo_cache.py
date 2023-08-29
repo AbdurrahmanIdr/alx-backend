@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-""" LIFO caching
+""" 
+    LIFO caching
 """
 
 
@@ -7,14 +8,16 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """ LIFOCache
+    """ 
+        LIFOCache
     """
     def __init__(self):
         super().__init__()
         self.history = []
 
     def put(self, key, item):
-        """ assigns the new item to the dictionary
+        """ 
+            assigns the new item to the dictionary
         """
         if not (key is None or item is None):
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS\
@@ -28,7 +31,8 @@ class LIFOCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """ returns the value in self.cache_data linked to key
+        """ 
+            returns the value in self.cache_data linked to key
         """
         if key is None or not (key in self.cache_data):
             return None
