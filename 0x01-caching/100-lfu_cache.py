@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-""" BaseCaching module
+""" 
+    BaseCaching module
 """
 from base_caching import BaseCaching
 
 
 class LFUCache(BaseCaching):
     """
-    LFUCache defines a LFU caching system
+        LFUCache defines a LFU caching system
     """
 
     def __init__(self):
         """
-        Initialize the class with the parent's init method
+            Initialize the class with the parent's init method
         """
         super().__init__()
         self.history = []
@@ -19,7 +20,7 @@ class LFUCache(BaseCaching):
 
     def put(self, key, item):
         """
-        Cache a key-value pair
+            Cache a key-value pair
         """
         if key is None or item is None:
             pass
@@ -54,7 +55,8 @@ class LFUCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """ returns the value in self.cache_data linked to key
+        """ 
+            returns the value in self.cache_data linked to key
         """
         if key is not None and key in self.cache_data.keys():
             del self.history[self.history.index(key)]
