@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
-""" FIFO caching
+""" 
+    FIFO caching
 """
 BaseCaching = __import__('base_caching').BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """ FIFOCache
+    """ 
+        FIFOCache
     """
     def __init__(self):
         super().__init__()
 
     def put(self, key, item):
-        """ assigns the new item to the dictionary
+        """ 
+            assigns the new item to the dictionary
         """
         if not (key is None or item is None):
             self.cache_data.update({key: item})
@@ -21,7 +24,8 @@ class FIFOCache(BaseCaching):
                 print(f'DISCARD: {first_in}')
 
     def get(self, key):
-        """ returns the value in self.cache_data linked to key
+        """ 
+            returns the value in self.cache_data linked to key
         """
         if key is None or not (key in self.cache_data):
             return None
