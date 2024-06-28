@@ -6,14 +6,14 @@ from typing import Dict, List
 
 
 class Server:
-    """Server class to paginate a database of popular baby names.
-    """
+    """Server class to paginate a database of popular baby names."""
+
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
         """
         Initializes a new Server instance.
-        Subclasses should override this method to perform initialization tasks 
+        Subclasses should override this method to perform initialization tasks
         such as setting up the dataset
         """
         self.__dataset = None
@@ -21,9 +21,9 @@ class Server:
 
     def dataset(self) -> List[List]:
         """
-        Read and cache the dataset. 
+        Read and cache the dataset.
 
-        Returns: 
+        Returns:
                 List of lists each list representing a row in the dataset.
             The first list is the header and the rest are the data
         """
@@ -38,10 +38,10 @@ class Server:
 
     def indexed_dataset(self) -> Dict[int, List]:
         """
-        Returns a dictionary of the dataset indexed by 
+        Returns a dictionary of the dataset indexed by
         sorting position starting at 0.
 
-        Returns: 
+        Returns:
         A dictionary of the dataset indexed by sorting position starting at 0.
         The keys are the integers in the range 0 to
         """
@@ -49,21 +49,19 @@ class Server:
         if self.__indexed_dataset is None:
             dataset = self.dataset()
             truncated_dataset = dataset[:1000]
-            self.__indexed_dataset = {
-                i: dataset[i] for i in range(len(dataset))
-            }
+            self.__indexed_dataset = {i: dataset[i] for i in range(len(dataset))}
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
         Retrieves information about a hyperparameter and its page.
-        
+
         Args:
-                index: ( Optional def = None ) 
+                index: ( Optional def = None )
             The index of the hyperparameter to retrieve
                 page_size: ( Optional def = 10 ) The size of the page
 
-        Returns: 
+        Returns:
                 A dictionary with the following keys : index next_index
         """
         data = self.indexed_dataset()
@@ -79,14 +77,14 @@ class Server:
                 page_data.append(item)
                 data_count += 1
                 continue
-        # If data_count is equal to page_size set next_index to the next page.
+            # If data_count is equal to page_size set next_index to the next page.
             if data_count == page_size:
                 next_index = i
                 break
         page_info = {
-            'index': index,
-            'next_index': next_index,
-            'page_size': len(page_data),
-            'data': page_data,
+            "index": index,
+            "next_index": next_index,
+            "page_size": len(page_data),
+            "data": page_data,
         }
         return page_info
