@@ -25,7 +25,6 @@ Welcome to the ALX Backend repository! This repository contains various backend 
       - `Popular_Baby_Names.csv`
       - `0-main.py`, `1-main.py`, `2-main.py`, `3-main.py`
 
-2. **[Add other projects as they are added to the repository]**
 
 ## Setup
 
