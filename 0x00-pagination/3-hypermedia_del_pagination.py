@@ -49,7 +49,8 @@ class Server:
         if self.__indexed_dataset is None:
             dataset = self.dataset()
             truncated_dataset = dataset[:1000]
-            self.__indexed_dataset = {i: dataset[i] for i in range(len(dataset))}
+            self.__indexed_dataset = {i: dataset[i]
+                                      for i in range(len(dataset))}
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
@@ -77,7 +78,8 @@ class Server:
                 page_data.append(item)
                 data_count += 1
                 continue
-            # If data_count is equal to page_size set next_index to the next page.
+            # If data_count is equal to page_size
+            # set next_index to the next page.
             if data_count == page_size:
                 next_index = i
                 break
