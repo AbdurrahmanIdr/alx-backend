@@ -18,3 +18,9 @@ function setNewSchool(schoolName, value) {
   client.SET(schoolName, value, print);
 }
 
+function displaySchoolValue(schoolName) {
+  client.GET(schoolName, (err, value) => {
+    console.log(value);
+  });
+}
+
