@@ -56,7 +56,19 @@ app.get('/reserve_seat', (req, res) => { /* eslint-disable-line consistent-retur
     });
 });
 
-
+app.get('/process', (req, res) => {
+  res.json({ status: 'Queue processing' });
+  queue.process('reserve_seat', async (job, done) => {
+    let availableSeats = await getCurrentAvailableSeats();
+    availableSeats -= 1;
+    reserveSeat(availableSeats);
+    if (availableSeats >= 0) {
+      if (availableSeats === 0) reservationEnabled = false;
+      done();
+    }
+    done(new Error('Not enough seats available'));
+  });
+});
 
 app.listen(1245, () => {
   reserveSeat(50);
