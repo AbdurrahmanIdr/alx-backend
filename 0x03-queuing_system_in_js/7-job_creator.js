@@ -53,4 +53,19 @@ const jobs = [
   },
 ];
 
-
+for (let job of jobs) {
+  job = queue.create('push_notification_code_2', job);
+  job
+    .on('complete', (result) => { /* eslint-disable-line no-unused-vars */
+      console.log(`Notification job ${job.id} completed`);
+    })
+    .on('failed', (err) => { /* eslint-disable-line no-unused-vars */
+      console.log(`Notification job ${job.id} failed: ${err.message || err.toString()}`);
+    })
+    .on('progress', (progress, data) => { /* eslint-disable-line no-unused-vars */
+      console.log(`Notification job ${job.id} ${progress}% complete`);
+    })
+    .save((err) => { /* eslint-disable-line no-unused-vars */
+      console.log(`Notification job created: ${job.id}`);
+    });
+}
